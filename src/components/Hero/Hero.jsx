@@ -55,19 +55,19 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="hero">
-      <div className="hero-background">
-        <div className="network-grid"></div>
-        <div className="gradient-orbs">
-          <div className="orb orb-1"></div>
-          <div className="orb orb-2"></div>
-          <div className="orb orb-3"></div>
+    <section id="home" className="hs-hero">
+      <div className="hs-hero-background">
+        <div className="hs-network-grid"></div>
+        <div className="hs-gradient-orbs">
+          <div className="hs-orb hs-orb-1"></div>
+          <div className="hs-orb hs-orb-2"></div>
+          <div className="hs-orb hs-orb-3"></div>
         </div>
-        <div className="floating-particles">
+        <div className="hs-floating-particles">
           {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="particle"
+              className="hs-particle"
               style={{
                 left: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 5}s`,
@@ -78,11 +78,11 @@ const Hero = () => {
             ></div>
           ))}
         </div>
-        <div className="connection-lines">
+        <div className="hs-connection-lines">
           {[...Array(5)].map((_, i) => (
             <svg
               key={i}
-              className="connection-line"
+              className="hs-connection-line"
               style={{ animationDelay: `${i * 0.5}s` }}
             >
               <line
@@ -98,44 +98,44 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="hero-content">
-          <div className="hero-text">
-            <div className="hero-badge">
-              <span className="badge-dot"></span>
+      <div className="hs-container">
+        <div className="hs-hero-content">
+          <div className="hs-hero-text">
+            <div className="hs-hero-badge">
+              <span className="hs-badge-dot"></span>
               Available for opportunities
             </div>
 
-            <p className="hero-greeting">
-              <span className="terminal-prompt">$</span>
-              <span className="greeting-text">Hello, I'm</span>
+            <p className="hs-hero-greeting">
+              <span className="hs-terminal-prompt">$</span>
+              <span className="hs-greeting-text">Hello, I'm</span>
             </p>
 
-            <h1 className="hero-name">
-              <span className="name-wrapper">
+            <h1 className="hs-hero-name">
+              <span className="hs-name-wrapper">
                 Sriramkarthick{" "}
-                <span className="glow-text-strong highlight-letter">S</span>
+                <span className="hs-glow-text-strong hs-highlight-letter">S</span>
               </span>
-              <div className="name-underline"></div>
+              <div className="hs-name-underline"></div>
             </h1>
 
-            <h2 className="hero-title">
-              <span className="typing-cursor">|</span>
-              <span className="typed-text">{displayText}</span>
+            <h2 className="hs-hero-title">
+              <span className="hs-typing-cursor">|</span>
+              <span className="hs-typed-text">{displayText}</span>
               <span
-                className={`blinking-cursor ${isTypingComplete ? "visible" : ""}`}
+                className={`hs-blinking-cursor ${isTypingComplete ? "hs-visible" : ""}`}
               >
                 _
               </span>
             </h2>
 
-            <div className="skills-carousel">
-              <span className="skills-label">Specialized in:</span>
-              <div className="skills-slider">
+            <div className="hs-skills-carousel">
+              <span className="hs-skills-label">Specialized in:</span>
+              <div className="hs-skills-slider">
                 {skills.map((skill, index) => (
                   <span
                     key={index}
-                    className={`skill-item ${index === currentSkillIndex ? "active" : ""}`}
+                    className={`hs-skill-item ${index === currentSkillIndex ? "hs-active" : ""}`}
                   >
                     {skill}
                   </span>
@@ -143,225 +143,215 @@ const Hero = () => {
               </div>
             </div>
 
-            <p className="hero-description">
-              <span className="description-highlight">Passionate</span> about
+            <p className="hs-hero-description">
+              <span className="hs-description-highlight">Passionate</span> about
               building intelligent network infrastructures and embedded
               solutions from the ground up. Specialized in TCP/IP networking,
               wireless protocols, and security implementations that power
               connected devices and modern digital ecosystems.
             </p>
 
-            <div className="hero-stats">
-              <div className="stat-item">
-                <div className="stat-value">5+</div>
-                <div className="stat-label">Projects</div>
+            <div className="hs-hero-stats">
+              <div className="hs-stat-item">
+                <div className="hs-stat-value">5+</div>
+                <div className="hs-stat-label">Projects</div>
               </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <div className="stat-value">10+</div>
-                <div className="stat-label">Certifications</div>
+              <div className="hs-stat-divider"></div>
+              <div className="hs-stat-item">
+                <div className="hs-stat-value">10+</div>
+                <div className="hs-stat-label">Certifications</div>
               </div>
-              <div className="stat-divider"></div>
-              <div className="stat-item">
-                <div className="stat-value">99%</div>
-                <div className="stat-label">Uptime</div>
+              <div className="hs-stat-divider"></div>
+              <div className="hs-stat-item">
+                <div className="hs-stat-value">99%</div>
+                <div className="hs-stat-label">Uptime</div>
               </div>
             </div>
 
-            <div className="hero-cta">
-              <a href="#contact" className="btn btn-primary btn-enhanced">
-                <span className="btn-text">Get In Touch</span>
-                <span className="btn-icon">
+            <div className="hs-hero-cta">
+              <a href="#contact" className="hs-btn hs-btn-primary hs-btn-enhanced">
+                <span className="hs-btn-text">Get In Touch</span>
+                <span className="hs-btn-icon">
                   <FaRocket />
                 </span>
-                <span className="btn-shine"></span>
+                <span className="hs-btn-shine"></span>
               </a>
-              <a href="#projects" className="btn btn-secondary">
-                <span className="btn-text">View Projects</span>
-                <span className="btn-arrow">→</span>
+              <a href="#projects" className="hs-btn hs-btn-secondary">
+                <span className="hs-btn-text">View Projects</span>
+                <span className="hs-btn-arrow">→</span>
               </a>
-              <a href="/resume.pdf" download className="btn btn-outline">
+              <a href="/resume.pdf" download className="hs-btn hs-btn-outline">
                 <FaDownload />
                 <span>Resume</span>
               </a>
             </div>
 
-            <div className="hero-social">
-              <p className="social-label">Connect with me</p>
-              <div className="social-links">
-                {/* <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-link"
-                  data-tooltip="GitHub"
-                >
-                  <FaGithub />
-                  <span className="social-ripple"></span>
-                </a> */}
+            <div className="hs-hero-social">
+              <p className="hs-social-label">Connect with me</p>
+              <div className="hs-social-links">
                 <a
                   href="https://www.linkedin.com/in/sriramkarthick-srinivasan-0b09b8212/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-link"
+                  className="hs-social-link"
                   data-tooltip="LinkedIn"
                 >
                   <FaLinkedin />
-                  <span className="social-ripple"></span>
+                  <span className="hs-social-ripple"></span>
                 </a>
                 <a
                   href="mailto:sriramkarthicksrinivasan@gmail.com"
-                  className="social-link"
+                  className="hs-social-link"
                   data-tooltip="Email"
                 >
                   <FaEnvelope />
-                  <span className="social-ripple"></span>
+                  <span className="hs-social-ripple"></span>
                 </a>
               </div>
             </div>
           </div>
 
           <div
-            className="hero-visual"
+            className="hs-hero-visual"
             style={{
               transform: `perspective(1000px) rotateY(${mousePosition.x * 0.5}deg) rotateX(${-mousePosition.y * 0.5}deg)`,
             }}
           >
-            <div className="terminal-window">
-              <div className="terminal-header">
-                <div className="terminal-buttons">
+            <div className="hs-terminal-window">
+              <div className="hs-terminal-header">
+                <div className="hs-terminal-buttons">
                   <span
-                    className="terminal-button red"
+                    className="hs-terminal-button hs-red"
                     data-action="close"
                   ></span>
                   <span
-                    className="terminal-button yellow"
+                    className="hs-terminal-button hs-yellow"
                     data-action="minimize"
                   ></span>
                   <span
-                    className="terminal-button green"
+                    className="hs-terminal-button hs-green"
                     data-action="maximize"
                   ></span>
                 </div>
-                <div className="terminal-title">
-                  <span className="title-icon">⚡</span>
+                <div className="hs-terminal-title">
+                  <span className="hs-title-icon">⚡</span>
                   network-status.sh
                 </div>
-                <div className="terminal-actions">
-                  <span className="action-dot"></span>
-                  <span className="action-dot"></span>
-                  <span className="action-dot"></span>
+                <div className="hs-terminal-actions">
+                  <span className="hs-action-dot"></span>
+                  <span className="hs-action-dot"></span>
+                  <span className="hs-action-dot"></span>
                 </div>
               </div>
 
-              <div className="terminal-body">
-                <div className="terminal-line command">
-                  <span className="terminal-prompt">$</span>
-                  <span className="command-text">ping network.status</span>
+              <div className="hs-terminal-body">
+                <div className="hs-terminal-line hs-command">
+                  <span className="hs-terminal-prompt">$</span>
+                  <span className="hs-command-text">ping network.status</span>
                 </div>
                 <div
-                  className="terminal-line success fade-in"
+                  className="hs-terminal-line hs-success hs-fade-in"
                   style={{ animationDelay: "0.5s" }}
                 >
-                  <span className="status-icon pulse">✓</span>
-                  <span className="status-label">Network:</span>
-                  <span className="glow-text status-value">ONLINE</span>
-                  <span className="status-bar">
+                  <span className="hs-status-icon hs-pulse">✓</span>
+                  <span className="hs-status-label">Network:</span>
+                  <span className="hs-glow-text hs-status-value">ONLINE</span>
+                  <span className="hs-status-bar">
                     <span
-                      className="status-progress"
+                      className="hs-status-progress"
                       style={{ width: "100%" }}
                     ></span>
                   </span>
                 </div>
                 <div
-                  className="terminal-line success fade-in"
+                  className="hs-terminal-line hs-success hs-fade-in"
                   style={{ animationDelay: "1s" }}
                 >
-                  <span className="status-icon pulse">✓</span>
-                  <span className="status-label">Latency:</span>
-                  <span className="glow-text status-value">12ms</span>
-                  <span className="latency-graph">▁▂▃▂▁</span>
+                  <span className="hs-status-icon hs-pulse">✓</span>
+                  <span className="hs-status-label">Latency:</span>
+                  <span className="hs-glow-text hs-status-value">12ms</span>
+                  <span className="hs-latency-graph">▁▂▃▂▁</span>
                 </div>
                 <div
-                  className="terminal-line success fade-in"
+                  className="hs-terminal-line hs-success hs-fade-in"
                   style={{ animationDelay: "1.5s" }}
                 >
-                  <span className="status-icon pulse">✓</span>
-                  <span className="status-label">Uptime:</span>
-                  <span className="glow-text status-value">99.9%</span>
-                  <span className="uptime-badge">Excellent</span>
+                  <span className="hs-status-icon hs-pulse">✓</span>
+                  <span className="hs-status-label">Uptime:</span>
+                  <span className="hs-glow-text hs-status-value">99.9%</span>
+                  <span className="hs-uptime-badge">Excellent</span>
                 </div>
 
                 <div
-                  className="terminal-line command"
+                  className="hs-terminal-line hs-command"
                   style={{ animationDelay: "2s" }}
                 >
-                  <span className="terminal-prompt">$</span>
-                  <span className="command-text">status --cloud-services</span>
+                  <span className="hs-terminal-prompt">$</span>
+                  <span className="hs-command-text">status --cloud-services</span>
                 </div>
 
                 <div
-                  className="terminal-line success fade-in"
+                  className="hs-terminal-line hs-success hs-fade-in"
                   style={{ animationDelay: "2.5s" }}
                 >
-                  <span className="status-icon pulse">✓</span>
-                  <span className="status-label">AWS:</span>
-                  <span className="glow-text status-value">CONNECTED</span>
-                  <span className="service-indicator aws"></span>
+                  <span className="hs-status-icon hs-pulse">✓</span>
+                  <span className="hs-status-label">AWS:</span>
+                  <span className="hs-glow-text hs-status-value">CONNECTED</span>
+                  <span className="hs-service-indicator hs-aws"></span>
                 </div>
                 <div
-                  className="terminal-line success fade-in"
+                  className="hs-terminal-line hs-success hs-fade-in"
                   style={{ animationDelay: "3s" }}
                 >
-                  <span className="status-icon pulse">✓</span>
-                  <span className="status-label">Security:</span>
-                  <span className="glow-text status-value">ENABLED</span>
-                  <span className="service-indicator secure">🔒</span>
+                  <span className="hs-status-icon hs-pulse">✓</span>
+                  <span className="hs-status-label">Security:</span>
+                  <span className="hs-glow-text hs-status-value">ENABLED</span>
+                  <span className="hs-service-indicator hs-secure">🔒</span>
                 </div>
 
                 <div
-                  className="terminal-line"
+                  className="hs-terminal-line"
                   style={{ animationDelay: "3.5s" }}
                 >
-                  <span className="terminal-prompt">$</span>
-                  <span className="blinking-cursor terminal-cursor">_</span>
+                  <span className="hs-terminal-prompt">$</span>
+                  <span className="hs-blinking-cursor hs-terminal-cursor">_</span>
                 </div>
               </div>
 
-              <div className="terminal-footer">
-                <span className="footer-item">
-                  <span className="footer-dot green"></span>
+              <div className="hs-terminal-footer">
+                <span className="hs-footer-item">
+                  <span className="hs-footer-dot hs-green"></span>
                   Connected
                 </span>
-                <span className="footer-item">
-                  <span className="footer-icon">⚡</span>
+                <span className="hs-footer-item">
+                  <span className="hs-footer-icon">⚡</span>
                   Live
                 </span>
               </div>
             </div>
 
-            <div className="floating-badge badge-1">
-              <span className="badge-icon">🛡️</span>
-              <span className="badge-text">Secure</span>
+            <div className="hs-floating-badge hs-badge-1">
+              <span className="hs-badge-icon">🛡️</span>
+              <span className="hs-badge-text">Secure</span>
             </div>
-            <div className="floating-badge badge-2">
-              <span className="badge-icon">⚡</span>
-              <span className="badge-text">Fast</span>
+            <div className="hs-floating-badge hs-badge-2">
+              <span className="hs-badge-icon">⚡</span>
+              <span className="hs-badge-text">Fast</span>
             </div>
-            <div className="floating-badge badge-3">
-              <span className="badge-icon">☁️</span>
-              <span className="badge-text">Cloud</span>
+            <div className="hs-floating-badge hs-badge-3">
+              <span className="hs-badge-icon">☁️</span>
+              <span className="hs-badge-text">Cloud</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="scroll-indicator">
-        <div className="mouse">
-          <div className="wheel"></div>
+      <div className="hs-scroll-indicator">
+        <div className="hs-mouse">
+          <div className="hs-wheel"></div>
         </div>
-        <p className="scroll-text">Explore More</p>
-        <div className="scroll-arrow">↓</div>
+        <p className="hs-scroll-text">Explore More</p>
+        <div className="hs-scroll-arrow">↓</div>
       </div>
     </section>
   );
