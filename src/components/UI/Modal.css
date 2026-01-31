@@ -1,0 +1,557 @@
+/* ===== Modal Overlay ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.modal-overlay.modal-open {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ===== Modal Container ===== */
+.modal-container {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(0, 255, 65, 0.2),
+        inset 0 0 0 1px rgba(0, 255, 65, 0.1);
+    animation: modalSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    outline: none;
+}
+
+/* Modal Sizes */
+.modal-small {
+    max-width: 500px;
+}
+
+.modal-medium {
+    max-width: 800px;
+}
+
+.modal-large {
+    max-width: 1200px;
+}
+
+.modal-fullscreen {
+    max-width: 95vw;
+    max-height: 95vh;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ===== Background Effects ===== */
+.modal-bg-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.3;
+}
+
+.modal-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridDrift 20s linear infinite;
+}
+
+@keyframes gridDrift {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+.modal-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.2;
+    animation: orbFloat 8s ease-in-out infinite;
+}
+
+.modal-orb-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--primary-green), transparent);
+    top: -150px;
+    right: -150px;
+    animation-delay: 0s;
+}
+
+.modal-orb-2 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #00d4ff, transparent);
+    bottom: -125px;
+    left: -125px;
+    animation-delay: 4s;
+}
+
+@keyframes orbFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(30px, 30px) scale(1.1);
+    }
+}
+
+/* ===== Top Gradient Line ===== */
+.modal-top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--dark-green),
+        var(--primary-green),
+        var(--neon-green),
+        var(--primary-green),
+        var(--dark-green),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+}
+
+/* ===== Modal Header ===== */
+.modal-header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(0, 255, 65, 0.02);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+}
+
+.modal-title {
+    font-size: 1.75rem;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+.modal-title-text {
+    background: linear-gradient(135deg, var(--text-primary), var(--primary-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+}
+
+.modal-title-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: var(--primary-green);
+    filter: blur(20px);
+    opacity: 0.3;
+    z-index: 0;
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* ===== Close Button ===== */
+.modal-close {
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-close:hover {
+    color: var(--primary-green);
+    background: rgba(0, 255, 65, 0.15);
+    border-color: var(--primary-green);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+}
+
+.modal-close:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+.close-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--primary-green) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.modal-close:hover .close-ripple {
+    opacity: 0.4;
+    transform: scale(2);
+}
+
+/* ===== Modal Content ===== */
+.modal-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 2;
+    
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-green) rgba(0, 255, 65, 0.1);
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 255, 65, 0.05);
+    border-radius: var(--radius-sm);
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.modal-content-inner {
+    padding: var(--spacing-xl);
+    min-height: 200px;
+}
+
+/* Scroll fade effect */
+.scroll-fade-bottom {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, var(--bg-card), transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content:not(.scrolled-to-bottom) .scroll-fade-bottom {
+    opacity: 1;
+}
+
+/* ===== Corner Decorations ===== */
+.modal-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-green);
+    opacity: 0.5;
+    z-index: 3;
+}
+
+.modal-corner-tl {
+    top: 10px;
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: var(--radius-sm);
+    animation: cornerPulse 3s ease-in-out infinite;
+}
+
+.modal-corner-tr {
+    top: 10px;
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: var(--radius-sm);
+    animation: cornerPulse 3s ease-in-out infinite 0.75s;
+}
+
+.modal-corner-bl {
+    bottom: 10px;
+    left: 10px;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: var(--radius-sm);
+    animation: cornerPulse 3s ease-in-out infinite 1.5s;
+}
+
+.modal-corner-br {
+    bottom: 10px;
+    right: 10px;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: var(--radius-sm);
+    animation: cornerPulse 3s ease-in-out infinite 2.25s;
+}
+
+@keyframes cornerPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 968px) {
+    .modal-container {
+        max-width: 95vw;
+    }
+
+    .modal-header {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-content-inner {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal-container {
+        max-height: 95vh;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        animation: modalSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        margin: 0;
+    }
+
+    @keyframes modalSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .modal-header {
+        padding: var(--spacing-md);
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    .modal-close {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+
+    .modal-content-inner {
+        padding: var(--spacing-md);
+    }
+
+    .modal-corner {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-container {
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .modal-title {
+        font-size: 1.1rem;
+    }
+
+    .modal-close {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .modal-orb {
+        filter: blur(40px);
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    .modal-overlay {
+        position: static;
+        background: none;
+        backdrop-filter: none;
+    }
+
+    .modal-container {
+        box-shadow: none;
+        border: 1px solid #000;
+        max-height: none;
+    }
+
+    .modal-close,
+    .modal-corner,
+    .modal-bg-effects,
+    .modal-top-line {
+        display: none;
+    }
+}
+
+/* ===== Accessibility - Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    .modal-overlay,
+    .modal-container,
+    .modal-grid,
+    .modal-orb,
+    .modal-top-line,
+    .modal-title-glow,
+    .modal-corner,
+    .close-ripple {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .modal-overlay {
+        opacity: 1;
+    }
+
+    .modal-container {
+        transform: none;
+    }
+}
+
+/* ===== High Contrast Mode ===== */
+@media (prefers-contrast: high) {
+    .modal-container {
+        border: 2px solid var(--primary-green);
+    }
+
+    .modal-close {
+        border: 2px solid var(--primary-green);
+    }
+}
+
+/* ===== Dark Mode Adjustments ===== */
+@media (prefers-color-scheme: dark) {
+    .modal-overlay {
+        background: rgba(0, 0, 0, 0.85);
+    }
+
+    .modal-container {
+        box-shadow: 
+            0 20px 60px rgba(0, 0, 0, 0.7),
+            0 0 40px rgba(0, 255, 65, 0.3),
+            inset 0 0 0 1px rgba(0, 255, 65, 0.15);
+    }
+}
