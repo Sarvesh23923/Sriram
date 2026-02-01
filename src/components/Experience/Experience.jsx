@@ -9,7 +9,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Permanent Analyst',
+      title: 'Programmer Analyst',
       company: 'Cognizant Technology Solutions',
       location: 'Chennai',
       period: 'Sep 2025 - Present',
