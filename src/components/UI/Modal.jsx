@@ -19,7 +19,7 @@ const Modal = ({ isOpen, onClose, children, title, size = 'medium' }) => {
       document.body.style.overflow = 'hidden';
       document.body.style.paddingRight = 'var(--scrollbar-width, 0px)';
       
-      // Add event listener
+      // Add event listener for keydown
       window.addEventListener('keydown', handleEsc);
       
       // Focus modal for accessibility
